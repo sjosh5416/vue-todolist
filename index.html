@@ -24,6 +24,44 @@
     <div id="app">
       <div class="container">
         <h1>{{ header }}</h1>
+        <div class="row">
+          <div class="input-group mb-3">
+            <input
+              type="text"
+              class="form-control"
+              placeholder="輸入文字"
+              v-model="newTodo"
+            />
+            <button type="button" class="btn btn-primary" v-on:click="addTodo">
+              新增
+            </button>
+          </div>
+        </div>
+        <div class="row">
+          <div class="input-group mb-3" v-for="(item, index) in todo">
+            <span class="input-group-text" id="basic-addon1">{{ index }}</span>
+            <button
+              type="button"
+              class="btn btn-success"
+              v-on:click="finishTodo(index)"
+            >
+              已完成
+            </button>
+            <input
+              type="text"
+              class="form-control"
+              v-bind:value="item.text"
+              disabled
+            />
+            <button
+              type="button"
+              class="btn btn-danger"
+              v-on:click="deleteTodo(index)"
+            >
+              刪除
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   </body>
