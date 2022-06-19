@@ -23,7 +23,7 @@ createApp({
       this.todo.splice(i, 1);
     },
     finishTodo(i) {
-      this.todo[i].status = true;
+      this.todo[i].status = !this.todo[i].status;
       console.table(this.todo);
     },
   },
